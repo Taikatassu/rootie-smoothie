@@ -1,26 +1,35 @@
 using RootieSmoothie.Audio;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
-[RequireComponent(typeof(Button), typeof(Image), typeof(AudioSource))]
+[RequireComponent(typeof(Button), typeof(Image))]
 public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField]
     public Image _image;
     [SerializeField]
     private Button _button;
+    [SerializeField]
+    private TMPro.TMP_Text _text;
 
     [HideInInspector]
     public Object EventData;
+    
+    [Header("Button Text")]
+    [SerializeField]
+    private string _buttonLabel;
 
     [Header("Audio")]
     [SerializeField]
     private AudioClip _onHoverEnterSound;
     [SerializeField]
     private AudioClip _onHoldSound;
+
 
     [Header("StateVisuals")]
     [SerializeField]
@@ -42,6 +51,11 @@ public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _image = GetComponent<Image>();
         _image.sprite = _defaultSprite;
         _button = GetComponent<Button>();
+        _text = GetComponentInChildren<TMP_Text>();
+        if (_text != null)
+        {
+            _text.text = _buttonLabel;
+        }
     }
 
     public void OnAwake()

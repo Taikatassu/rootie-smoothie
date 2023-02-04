@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 389a0242c46850443815038cbbdb5f84, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -138,13 +138,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 4188297946751997333}
   _button: {fileID: 4188297946751997332}
-  _audioSource: {fileID: 4188297946751997335}
+  _text: {fileID: 4188297947797215149}
   EventData: {fileID: 0}
+  _buttonLabel: Button text
   _onHoverEnterSound: {fileID: 0}
   _onHoldSound: {fileID: 8300000, guid: f825f43b83fe92f4da0d6f1a54d1c21b, type: 3}
-  _defaultSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  _hoveredSprite: {fileID: 21300000, guid: 4321b6cba6e011e45b66a9d075b5581a, type: 3}
-  _holdingSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  _defaultSprite: {fileID: 21300000, guid: 389a0242c46850443815038cbbdb5f84, type: 3}
+  _hoveredSprite: {fileID: 21300000, guid: 389a0242c46850443815038cbbdb5f84, type: 3}
+  _holdingSprite: {fileID: 21300000, guid: 67b26b0cc71c8fa408b1492188a7bdd3, type: 3}
   OnClickEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -153,10 +154,34 @@ MonoBehaviour:
       m_Calls: []
   OnPointerUpEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1386932143}
+        m_TargetAssemblyTypeName: RootieSmoothie.UI.ButtonTextMover, Assembly-CSharp
+        m_MethodName: MoveTextUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPointerDownEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1386932143}
+        m_TargetAssemblyTypeName: RootieSmoothie.UI.ButtonTextMover, Assembly-CSharp
+        m_MethodName: MoveTextDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &4188297946751997335
 AudioSource:
   m_ObjectHideFlags: 0
@@ -264,6 +289,7 @@ GameObject:
   - component: {fileID: 4188297947797215148}
   - component: {fileID: 4188297947797215150}
   - component: {fileID: 4188297947797215149}
+  - component: {fileID: 1386932143}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -278,7 +304,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4188297947797215155}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -290,7 +316,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4188297947797215150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -313,23 +339,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Button text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f87421e3b61accf4ca4380f091b99437, type: 2}
+  m_sharedMaterial: {fileID: -506188292609647979, guid: f87421e3b61accf4ca4380f091b99437, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -346,13 +372,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 0
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -370,7 +396,7 @@ MonoBehaviour:
   m_enableKerning: 0
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -388,3 +414,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1386932143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188297947797215155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6555cdd36a434cb184bc566acf1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
