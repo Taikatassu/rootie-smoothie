@@ -10,7 +10,13 @@ namespace RootieSmoothie.Audio
         [SerializeField]
         private readonly Stack<AudioSource> _pool = new();
         private List<AudioSource> _sources = new();
+        public bool IsSoundMuted = true;
 
+        public void Start()
+        {
+            IsSoundMuted = PlayerPrefs.GetInt("s_soundMuted") > 0;
+        }
+        
         private AudioSource GetAudioSource()
         {
             if (_pool.Count > 0)
@@ -29,6 +35,7 @@ namespace RootieSmoothie.Audio
             source.clip = clip;
             source.loop = loop;
             source.pitch = pitch;
+            source.volume = IsSoundMuted ? 0 : 1;
             source.Play();
             _activePlayers.Add((obj, source, clip.name));
             _sources.Add(source);
@@ -58,6 +65,21 @@ namespace RootieSmoothie.Audio
                 if (player.source.isPlaying)
                     continue;
                 _activePlayers.Remove(player);
+            }
+        }
+
+        public void SetSoundMuted(bool value)
+        {
+            IsSoundMuted = value;
+            PlayerPrefs.SetInt("s_soundMuted", value ? 1 : 0);
+            foreach (var item in _activePlayers)
+            {
+                item.source.volume = IsSoundMuted ? 0 : 1;
+            }
+
+            foreach (var item in _pool)
+            {
+                item.volume = IsSoundMuted ? 0 : 1;
             }
         }
     }
