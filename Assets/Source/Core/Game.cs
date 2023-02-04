@@ -42,7 +42,7 @@ namespace RootieSmoothie.Core
         public void Start(float timeNow)
         {
             Day.Start();
-            Blender.Start(_ingredientDefinitions.GetRandomElement());
+            Blender.StartSmoothie(_ingredientDefinitions.GetRandomElement());
             Inventory.Start(timeNow);
         }
 
@@ -59,6 +59,12 @@ namespace RootieSmoothie.Core
                 return;
 
             Inventory.RemoveIngredient(selectedIngredient);
+        }
+
+        public void CompleteOrder()
+        {
+            var completedSmoothie = Blender.CompleteSmoothie();
+            Day.CompleteOrder(Day.PendingOrders[0], completedSmoothie);
         }
     }
 }

@@ -2,9 +2,10 @@ using System;
 using RootieSmoothie.CommonExtensions;
 using RootieSmoothie.Core;
 using RootieSmoothie.Core.Blending;
+using RootieSmoothie.View.Blending;
 using UnityEngine;
 
-namespace RootieSmoothie.View.Blending
+namespace RootieSmoothie.View
 {
     public class InventoryView : MonoBehaviour
     {

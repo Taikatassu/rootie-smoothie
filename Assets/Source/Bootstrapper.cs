@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using RootieSmoothie.CommonExtensions;
 using RootieSmoothie.Content;
 using RootieSmoothie.Core;
+using RootieSmoothie.View;
 using RootieSmoothie.View.Blending;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ namespace RootieSmoothie
         private BlenderView _blenderView = null;
         [SerializeField]
         private InventoryView _inventoryView = null;
+        [SerializeField]
+        private OrderView _orderView = null;
 
         private Game _game;
 
@@ -33,6 +36,7 @@ namespace RootieSmoothie
 
             _blenderView.Initialize(_game.Blender);
             _inventoryView.Initialize(_game.Inventory, _game.SelectIngredient);
+            _orderView.Initialize(_game.Day);
         }
 
         private void Start()
