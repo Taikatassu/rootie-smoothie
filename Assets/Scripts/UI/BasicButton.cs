@@ -1,3 +1,4 @@
+using RootieSmoothie.Audio;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -11,8 +12,6 @@ public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Image _image;
     [SerializeField]
     private Button _button;
-    [SerializeField]
-    private AudioSource _audioSource;
 
     [HideInInspector]
     public Object EventData;
@@ -43,7 +42,6 @@ public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _image = GetComponent<Image>();
         _image.sprite = _defaultSprite;
         _button = GetComponent<Button>();
-        _audioSource = GetComponent<AudioSource>();
     }
 
     public void OnAwake()
@@ -75,10 +73,8 @@ public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             OnPointerDownEvent.Invoke(this);
             if (_isHovered)
             {
-                _audioSource.clip = _onHoldSound;
-                _audioSource.pitch = _random.Next(65, 95) / 100f;
-                _audioSource.loop = true;
-                _audioSource.Play();
+                var pitch = _random.Next(65, 95) / 100f;
+                AudioManager.Instance.PlaySound(this, _onHoldSound, true, pitch);
             }
         }
         _isHolding = true;
@@ -90,8 +86,8 @@ public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (_isHolding)
         {
             OnPointerUpEvent.Invoke(this);
-            _audioSource.Stop();
         }
+        AudioManager.Instance.StopSound(this, _onHoldSound);
         _isHolding = false;
         UpdateVisuals();
 
@@ -102,9 +98,7 @@ public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (!_isHolding)
         {
             OnHoveredEvent.Invoke(this);
-            _audioSource.clip = _onHoverEnterSound;
-            _audioSource.loop = false;
-            _audioSource.Play();
+            AudioManager.Instance.PlaySound(this, _onHoverEnterSound, false);
         }
         _isHovered = true;
         UpdateVisuals();
