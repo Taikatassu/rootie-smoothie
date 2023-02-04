@@ -1,21 +1,53 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using Cursor = UnityEngine.Cursor;
 
 namespace RootieSmoothie.UI
 {
     public class CursorManager : Singleton<CursorManager>
     {
+        public enum CursorState
+        {
+            Default,
+            Click
+        }
+
+        private CursorState _state;
+        
         [SerializeField]
         private Texture2D _cursorDefaultSprite;
         [SerializeField]
-        private Texture2D _cursorClickSprite;
+        private Texture2D _cursorDefaultClickSprite;
 
+        private Texture2D _currentCursorSprite;
+        private Texture2D _currentCursorClickSprite;
+        
+        [Header("Pivot")]
+        [SerializeField]
+        private Vector2 _defaultPivot;
+        [SerializeField]
+        private Vector2 _pivot;
+        
         private bool _isMouseButtonDown;
 
-        public void Awake()
+        public void Start()
         {
-            SetDefaultCursor();
+            ResetCursorToDefault();
+        }
+
+        public void ResetCursorToDefault()
+        {
+            SetCursorSprites(_cursorDefaultSprite, _cursorDefaultClickSprite, _defaultPivot);
+            SetCursor(GetCursorTexture());
+        }
+
+        public void SetCursorSprites(Texture2D normal, Texture2D click, Vector2 pivot)
+        {
+            _pivot = pivot;
+            _currentCursorSprite = normal;
+            _currentCursorClickSprite = click;
+            SetCursor(GetCursorTexture());
         }
 
         public void Update()
@@ -55,12 +87,32 @@ namespace RootieSmoothie.UI
 
         private void SetDefaultCursor()
         {
-            Cursor.SetCursor(_cursorDefaultSprite, new Vector2(0.33f, 0.25f), CursorMode.ForceSoftware);
+            SetCursor(_currentCursorSprite);
+            _state = CursorState.Default;
         }
 
         private void SetClickCursor()
         {
-            Cursor.SetCursor(_cursorClickSprite, new Vector2(0.33f, 0.25f), CursorMode.ForceSoftware);
+            SetCursor(_currentCursorClickSprite);
+            _state = CursorState.Click;
+        }
+
+        private Texture2D GetCursorTexture()
+        {
+            switch (_state)
+            {
+                case CursorState.Click:
+                    return _currentCursorClickSprite;
+                default:
+                    return _currentCursorSprite;
+            }
+        }
+
+        private void SetCursor(Texture2D texture)
+        {
+            var pixelPos = _pivot * new Vector2(texture.width, texture.height);
+            pixelPos.y = texture.height - pixelPos.y;
+            Cursor.SetCursor(texture, pixelPos, CursorMode.ForceSoftware);
         }
     }
 }
