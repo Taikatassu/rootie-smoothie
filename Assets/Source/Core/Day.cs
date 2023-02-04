@@ -9,6 +9,10 @@ namespace RootieSmoothie.Core
 {
     public class Day
     {
+        public Action<Order> OnOrderStarted;
+        public Action<Order> OnOrderCompleted;
+
+
         public List<Order> PendingOrders { get; private set; }
         public List<Order> CompletedOrders { get; private set; }
         public Rating Rating { get; private set; }
@@ -45,6 +49,7 @@ namespace RootieSmoothie.Core
             order.ThrowIfNullArgument(nameof(order));
 
             PendingOrders.Add(order);
+            OnOrderStarted?.Invoke(order);
         }
 
         private Order GetRandomOrder()
@@ -63,6 +68,13 @@ namespace RootieSmoothie.Core
 
             CompletedOrders.Add(order);
             PendingOrders.Remove(order);
+
+            OnOrderCompleted?.Invoke(order);
+        }
+
+        public void AddRandomOrder()
+        {
+            AddOrder(GetRandomOrder());
         }
     }
 }

@@ -18,16 +18,21 @@ namespace RootieSmoothie.Core.Blending
             _maxIngredientsPerSmoothieCount = maxIngredientsPerSmoothieCount;
         }
 
-        public void Start(IngredientDefinition initialIngredient)
+        public void StartSmoothie(IngredientDefinition initialIngredient)
         {
             _smoothie = new Smoothie(_maxIngredientsPerSmoothieCount);
             _smoothie.TryAddIngredient(initialIngredient);
             OnSmoothieUpdated?.Invoke(_smoothie.Color);
         }
 
-        public void Empty()
+        public Smoothie CompleteSmoothie()
         {
+            var resultingSmoothie = _smoothie;
             _smoothie = null;
+
+            OnSmoothieUpdated?.Invoke(Color.clear);
+
+            return resultingSmoothie;
         }
 
         public bool TryAddIngredient(IngredientDefinition ingredient)
