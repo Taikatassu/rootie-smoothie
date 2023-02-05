@@ -1,0 +1,2 @@
+snd_partyhorn https://freesound.org/people/InspectorJ/sounds/484267/
+snd_pat https://freesound.org/people/Breviceps/sounds/448084/

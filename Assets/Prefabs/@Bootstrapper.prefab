@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6266458882041728258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6266458882041728259}
+  - component: {fileID: 6266458882041728268}
+  m_Layer: 0
+  m_Name: '@Bootstrapper'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6266458882041728259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266458882041728258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6266458882041728268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266458882041728258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0513524afbcb34c95f045df2e5546f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orderDefinitions:
+  - {fileID: 11400000, guid: 22e695cdff2b71f4bb098ed5e6dd28b0, type: 2}
+  - {fileID: 11400000, guid: 415039b9ffa54664497c98450a5badf8, type: 2}
+  - {fileID: 11400000, guid: 9e3ea25d30734a04f8ef2291d72d9fbc, type: 2}
+  - {fileID: 11400000, guid: 98f2576ba2988c14c945791d547cc933, type: 2}
+  - {fileID: 11400000, guid: 71bf973cadc040e4ca231e63482f329d, type: 2}
+  - {fileID: 11400000, guid: 60e88ddbbdb9ce04380eaeae5f5a284c, type: 2}
+  - {fileID: 11400000, guid: f510a70fffdf0c846ba29217c81f5309, type: 2}
+  - {fileID: 11400000, guid: 9bd869c823335ad469479ffb06704f81, type: 2}
+  - {fileID: 11400000, guid: aa7b32da95ef22c459f46ffddde9b4ad, type: 2}
+  - {fileID: 11400000, guid: 3b2faa664bb517041939a277de625353, type: 2}
+  _ingredientDefinitions:
+  - {fileID: 11400000, guid: a8a13fa25ec882d4b9ab9c9ef0592f94, type: 2}
+  - {fileID: 11400000, guid: a44c49496c306a245bce35517eeb0c5b, type: 2}
+  - {fileID: 11400000, guid: 3d1413c01ce129447a4167153e9f9f2a, type: 2}
+  - {fileID: 11400000, guid: 78c292c07fcdd9549b1ee3dae1a93256, type: 2}
+  - {fileID: 11400000, guid: 35ed3d6b36f382e45b22b94681985baf, type: 2}
+  - {fileID: 11400000, guid: f25a2fb837fab1641af6de6c932dfa0d, type: 2}
+  - {fileID: 11400000, guid: db7eff5ed71f4ba468c696d419c10376, type: 2}
+  - {fileID: 11400000, guid: 6b408d1226271d648aa153237cd28109, type: 2}
+  - {fileID: 11400000, guid: 170274f91b4b0da409a3043ede81159c, type: 2}
+  - {fileID: 11400000, guid: 37fe64f29a37e7149b9ee839b438c8f1, type: 2}
+  - {fileID: 11400000, guid: b5a29de8319c96c4d900b80de660714e, type: 2}
+  - {fileID: 11400000, guid: 3cd23bb964fc2c34a8f2d16100f49217, type: 2}
+  - {fileID: 11400000, guid: 4e95b4e646bbbf44abdbbdcf5ca30246, type: 2}
+  - {fileID: 11400000, guid: e363eef0126018c428c3bf7df3840616, type: 2}
+  - {fileID: 11400000, guid: 22e6bc9fc155b574aa326c8ce37c279c, type: 2}
+  - {fileID: 11400000, guid: 531e3c7b6c7a43e43bdac51423ef49ea, type: 2}
+  - {fileID: 11400000, guid: 81d498cd162e1414bac0f0c972669f0d, type: 2}
+  - {fileID: 11400000, guid: 23ded019e23229245b6e6f4d4a1b1e95, type: 2}
+  _blenderView: {fileID: 0}
+  _inventoryView: {fileID: 0}
+  _ordersView: {fileID: 0}
+  _dayView: {fileID: 0}
