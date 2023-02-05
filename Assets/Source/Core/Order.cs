@@ -4,6 +4,7 @@ using System.Linq;
 using RootieSmoothie.CommonExtensions;
 using RootieSmoothie.Content;
 using RootieSmoothie.Core.Blending;
+using UnityEngine;
 
 namespace RootieSmoothie.Core
 {
@@ -47,7 +48,21 @@ namespace RootieSmoothie.Core
             smoothie.ThrowIfNullArgument(nameof(smoothie));
 
             // TODO: Evaluate smoothie against definition
-            Rating = GetRandomRating();
+            var orderColor = Definition.Color;
+            var smoothieColor = smoothie.Color;
+            var a = new Vector3(orderColor.r, orderColor.g, orderColor.b);
+            var b = new Vector3(smoothieColor.r, smoothieColor.g, smoothieColor.b);
+            var dist = Vector3.Distance(a, b);
+            if (dist <= 0.25f)
+                Rating = RatingFullStars.Five;
+            else if (dist <= 0.5f)
+                Rating = RatingFullStars.Four;
+            else if (dist <= 0.8f)
+                Rating = RatingFullStars.Three;
+            else if (dist <= 1f)
+                Rating = RatingFullStars.Two;
+            else
+                Rating = RatingFullStars.One;
         }
 
         private RatingFullStars GetRandomRating()
