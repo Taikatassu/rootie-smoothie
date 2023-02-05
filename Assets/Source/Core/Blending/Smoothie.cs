@@ -50,7 +50,7 @@ namespace RootieSmoothie.Core.Blending
                 var a = new Vector3(mixedColor.r, mixedColor.g, mixedColor.b);
                 var b = new Vector3(newColor.r, newColor.g, newColor.b);
                 var dist = Vector3.Distance(a, b);
-                if (dist < 0.35f)
+                if (dist < 0.2f)
                 {
                     newColor = blendColor;
                 }
