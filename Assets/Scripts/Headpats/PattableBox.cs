@@ -17,6 +17,11 @@ namespace RootieSmoothie.Headpats
             _pattablePerson = GetComponentInParent<IPattablePerson>();
         }
 
+        public void Awake()
+        {
+            _pattablePerson = GetComponentInParent<IPattablePerson>();
+        }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             _isHovered = true;
