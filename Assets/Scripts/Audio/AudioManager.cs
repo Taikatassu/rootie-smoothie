@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace RootieSmoothie.Audio
@@ -29,7 +30,7 @@ namespace RootieSmoothie.Audio
 
         public void PlaySound(Object obj, AudioClip clip, bool loop = false, float pitch = 1f)
         {
-            if (clip == null)
+            if (!clip)
                 return;
             var source = GetAudioSource();
             source.clip = clip;
@@ -50,13 +51,14 @@ namespace RootieSmoothie.Audio
                 if (player.obj != obj || !string.Equals(player.clipName, clip.name))
                     continue;
                 player.source.Stop();
+                player.source.clip = null;
                 _pool.Push(player.source);
                 _activePlayers.RemoveAt(i);
                 return;
             }
         }
 
-        public void LateUpdate()
+        public void Update()
         {
             var count = _activePlayers.Count;
             for (var i = count - 1; i >= 0; --i)
@@ -64,7 +66,10 @@ namespace RootieSmoothie.Audio
                 var player = _activePlayers[i];
                 if (player.source.isPlaying)
                     continue;
+                player.source.Stop();
+                player.source.clip = null;
                 _activePlayers.Remove(player);
+                _pool.Push(player.source);
             }
         }
 

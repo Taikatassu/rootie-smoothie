@@ -12,9 +12,7 @@ namespace  RootieSmoothie
             {
                 if (_instance != null)
                     return _instance;
-                
                 var obj = new GameObject(typeof(T).Name);
-                DontDestroyOnLoad(obj);
                 _instance = obj.AddComponent<T>();
                 return _instance;
             }
@@ -28,6 +26,8 @@ namespace  RootieSmoothie
                 return;
             }
             _instance = GetComponent<T>();
+            gameObject.name = typeof(T).Name;
+            DontDestroyOnLoad(gameObject);
         }
     }
 }
