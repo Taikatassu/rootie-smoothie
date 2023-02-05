@@ -1,3 +1,5 @@
+using RootieSmoothie.Audio;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -19,9 +21,12 @@ namespace RootieSmoothie.UI
         private Texture2D _cursorDefaultSprite;
         [SerializeField]
         private Texture2D _cursorDefaultClickSprite;
+        [SerializeField]
+        private AudioClip _defaultClickAudio;
 
         private Texture2D _currentCursorSprite;
         private Texture2D _currentCursorClickSprite;
+        private AudioClip _currentAudioClip;
         
         [Header("Pivot")]
         [SerializeField]
@@ -39,6 +44,7 @@ namespace RootieSmoothie.UI
         public void ResetCursorToDefault()
         {
             SetCursorSprites(_cursorDefaultSprite, _cursorDefaultClickSprite, _defaultPivot);
+            SetCursorAudio(_defaultClickAudio);
             SetCursor(GetCursorTexture());
         }
 
@@ -50,26 +56,19 @@ namespace RootieSmoothie.UI
             SetCursor(GetCursorTexture());
         }
 
+        public void SetCursorAudio(AudioClip clip)
+        {
+            _currentAudioClip = clip;
+        }
+
         public void Update()
         {
-            var changed = false;
-            if (_isMouseButtonDown != Input.GetMouseButtonDown(0))
-            {
-                _isMouseButtonDown = true;
-                changed = true;
-            }
-            if (_isMouseButtonDown && Input.GetMouseButtonUp(0))
-            {
-                _isMouseButtonDown = false;
-                changed = true;
-            }
-
-            if (!changed) return;
-            if (_isMouseButtonDown)
+            if (Input.GetMouseButtonDown(0))
             {
                 SetClickCursor();
+                AudioManager.Instance.PlaySound(this, _currentAudioClip);
             }
-            else
+            else if (Input.GetMouseButtonUp(0))
             {
                 SetDefaultCursor();
             }
