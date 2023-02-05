@@ -97,11 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2444011316475769317, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
       propertyPath: m_Name
-      value: P_PattablePerson_4_Squaddle
+      value: P_PattablePerson_5_Brittney
       objectReference: {fileID: 0}
     - target: {fileID: 2775821640273127783, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdef3abba8958004a9daaf7fa5ecb28d, type: 3}
+      objectReference: {fileID: 21300000, guid: 018865f3b0501574c93368135bfd8d3e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}

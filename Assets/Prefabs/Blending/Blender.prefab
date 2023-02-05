@@ -214,27 +214,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 483120867586333412, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 172.166
+      value: 381.6
       objectReference: {fileID: 0}
     - target: {fileID: 483120867586333412, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 297.802
-      objectReference: {fileID: 0}
-    - target: {fileID: 483120867586333412, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 785.5
       objectReference: {fileID: 0}
     - target: {fileID: 483120867586333412, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 63
-      objectReference: {fileID: 0}
-    - target: {fileID: 483120867586333413, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
-      propertyPath: m_Name
-      value: Image
-      objectReference: {fileID: 0}
-    - target: {fileID: 483120867586333415, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
-      propertyPath: m_Color.a
-      value: 1
+      value: -75.2
       objectReference: {fileID: 0}
     - target: {fileID: 483120867648823262, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
       propertyPath: m_Pivot.x
@@ -323,10 +311,6 @@ PrefabInstance:
     - target: {fileID: 483120867648823263, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
       propertyPath: m_Name
       value: Smoothie
-      objectReference: {fileID: 0}
-    - target: {fileID: 483120867648823263, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c9194e3f2828b64d9b9bb7a764e0e5f, type: 3}
