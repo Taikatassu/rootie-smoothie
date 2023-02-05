@@ -5,6 +5,7 @@ using RootieSmoothie.Core;
 using RootieSmoothie.View;
 using RootieSmoothie.View.Blending;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace RootieSmoothie
 {
@@ -49,6 +50,9 @@ namespace RootieSmoothie
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                SceneManager.LoadScene("Main");
+
             _game.Update(Time.time);
         }
     }

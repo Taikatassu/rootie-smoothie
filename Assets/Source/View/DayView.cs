@@ -36,13 +36,13 @@ namespace RootieSmoothie.View
 
             _currentDayNumberText.text = $"Day {_day.DayNumber}";
             // TODO: Close daily rating popup here
-            _nextDayButton.interactable = false;
+            _nextDayButton.gameObject.SetActive(false);
         }
 
         private void OnDayEnded(Day day)
         {
             // TODO: Show daily rating popup from here
-            _nextDayButton.interactable = true;
+            _nextDayButton.gameObject.SetActive(true);
         }
 
         // TODO: Hook this method up to a button in the daily rating popup!

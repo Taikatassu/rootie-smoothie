@@ -63,7 +63,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_ReverseArrangement: 1
 --- !u!114 &6585608054682357152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,3 +78,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _orderViewPrefab: {fileID: 1443834289462450726, guid: f5fa2d57c63ecd5438c8a9667b1bb5af, type: 3}
   _orderViewsParent: {fileID: 5445786219415967570}
+  _characterRoot: {fileID: 0}
