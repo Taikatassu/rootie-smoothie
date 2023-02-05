@@ -23,6 +23,8 @@ namespace RootieSmoothie
         private InventoryView _inventoryView = null;
         [SerializeField]
         private OrdersView _ordersView = null;
+        [SerializeField]
+        private DayView _dayView = null;
 
         private Game _game;
 
@@ -37,6 +39,7 @@ namespace RootieSmoothie
             _blenderView.Initialize(_game.Blender);
             _inventoryView.Initialize(_game.Inventory, _game.SelectIngredient);
             _ordersView.Initialize(_game);
+            _dayView.Initialize(_game);
         }
 
         private void Start()

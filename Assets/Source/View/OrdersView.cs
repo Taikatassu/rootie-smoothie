@@ -23,27 +23,62 @@ namespace RootieSmoothie.View
 
             InitializeOrderViews();
 
-            _game.Day.OnOrderStarted += OnOrderStarted;
-            _game.Day.OnOrderCompleted += OnOrderCompleted;
+            _game.OnDayStarted += OnDayStarted;
+            _game.OnDayEnded += OnDayCompleted;
         }
 
         private void InitializeOrderViews()
         {
             _completedOrderView = CreateOrderView();
             _currentOrderView = CreateOrderView();
+            ResetOrderViews();
         }
 
         private OrderView CreateOrderView()
         {
             var newOrderView = Instantiate(_orderViewPrefab, _orderViewsParent);
-            newOrderView.gameObject.SetActive(false);
             return newOrderView;
+        }
+
+        private void ResetOrderViews()
+        {
+            _completedOrderView.gameObject.SetActive(false);
+            _currentOrderView.gameObject.SetActive(false);
+        }
+
+        private void OnDayStarted(Day day)
+        {
+            UnityEngine.Debug.Log($"OrdersView: OnDayStarted!");
+
+            day.OnOrderStarted += OnOrderStarted;
+            day.OnOrderCompleted += OnOrderCompleted;
+
+            OnOrderStarted(day.PendingOrders[0]);
         }
 
         private void OnOrderStarted(Order order)
         {
+            UnityEngine.Debug.Log($"OrdersView: OnOrderStarted!");
+
             SwitchCurrentAndCompletedOrderViews();
             _currentOrderView.StartOrder(order, _game.CompleteCurrentOrder);
+        }
+
+        private void OnOrderCompleted(Order order)
+        {
+            UnityEngine.Debug.Log($"OrdersView: OnOrderCompleted!");
+
+            _currentOrderView.CompleteOrder(order);
+        }
+
+        private void OnDayCompleted(Day day)
+        {
+            UnityEngine.Debug.Log($"OrdersView: OnDayCompleted!");
+
+            day.OnOrderStarted -= OnOrderStarted;
+            day.OnOrderCompleted -= OnOrderCompleted;
+
+            ResetOrderViews();
         }
 
         private void SwitchCurrentAndCompletedOrderViews()
@@ -55,15 +90,10 @@ namespace RootieSmoothie.View
             _currentOrderView.transform.SetAsLastSibling();
         }
 
-        private void OnOrderCompleted(Order order)
-        {
-            _currentOrderView.CompleteOrder(order);
-        }
-
         private void OnDestroy()
         {
-            _game.Day.OnOrderStarted -= OnOrderStarted;
-            _game.Day.OnOrderCompleted -= OnOrderCompleted;
+            _game.OnDayStarted -= OnDayStarted;
+            _game.OnDayEnded -= OnDayCompleted;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace RootieSmoothie.Core
         public Action<Order> OnOrderStarted;
         public Action<Order> OnOrderCompleted;
 
+        public int DayNumber { get; private set; }
         public List<Order> PendingOrders { get; private set; }
         public List<Order> CompletedOrders { get; private set; }
         public Rating Rating { get; private set; }
@@ -22,13 +23,14 @@ namespace RootieSmoothie.Core
         private int _maxOrderCount;
         private List<OrderDefinition> _potentialOrders;
 
-        public Day(int maxOrderCount, List<OrderDefinition> potentialOrders)
+        public Day(int maxOrderCount, List<OrderDefinition> potentialOrders, int dayNumber)
         {
             maxOrderCount.ThrowIfNegative(nameof(maxOrderCount));
             potentialOrders.ThrowIfNullOrEmptyArgument(nameof(potentialOrders));
 
             _maxOrderCount = maxOrderCount;
             _potentialOrders = potentialOrders;
+            DayNumber = dayNumber;
 
             PendingOrders = new List<Order>();
             CompletedOrders = new List<Order>();
@@ -50,6 +52,8 @@ namespace RootieSmoothie.Core
 
             PendingOrders.Add(order);
             OnOrderStarted?.Invoke(order);
+
+            UnityEngine.Debug.Log($"New order started!");
         }
 
         private Order GetRandomOrder()
@@ -70,6 +74,8 @@ namespace RootieSmoothie.Core
             PendingOrders.Remove(order);
 
             OnOrderCompleted?.Invoke(order);
+
+            UnityEngine.Debug.Log($"Order completed!");
         }
 
         public bool TryStartNewOrder()
