@@ -45,9 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _orderDefinitions:
-  - {fileID: 11400000, guid: 530ef19829453fe438bea6391fa36578, type: 2}
-  - {fileID: 11400000, guid: f72be1b5a03fe884eb2751824afa545b, type: 2}
-  - {fileID: 11400000, guid: b29cb1d18509da24ca14525cfbe5d802, type: 2}
+  - {fileID: 11400000, guid: 22e695cdff2b71f4bb098ed5e6dd28b0, type: 2}
+  - {fileID: 11400000, guid: 415039b9ffa54664497c98450a5badf8, type: 2}
+  - {fileID: 11400000, guid: 9e3ea25d30734a04f8ef2291d72d9fbc, type: 2}
+  - {fileID: 11400000, guid: 98f2576ba2988c14c945791d547cc933, type: 2}
+  - {fileID: 11400000, guid: 60e88ddbbdb9ce04380eaeae5f5a284c, type: 2}
+  - {fileID: 11400000, guid: f510a70fffdf0c846ba29217c81f5309, type: 2}
+  - {fileID: 11400000, guid: 9bd869c823335ad469479ffb06704f81, type: 2}
+  - {fileID: 11400000, guid: aa7b32da95ef22c459f46ffddde9b4ad, type: 2}
   _ingredientDefinitions:
   - {fileID: 11400000, guid: a8a13fa25ec882d4b9ab9c9ef0592f94, type: 2}
   - {fileID: 11400000, guid: a44c49496c306a245bce35517eeb0c5b, type: 2}
