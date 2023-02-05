@@ -79,3 +79,5 @@ MonoBehaviour:
   _orderViewPrefab: {fileID: 1443834289462450726, guid: f5fa2d57c63ecd5438c8a9667b1bb5af, type: 3}
   _orderViewsParent: {fileID: 5445786219415967570}
   _characterRoot: {fileID: 0}
+  _successSound: {fileID: 8300000, guid: 5cb73dc5ba052b44482f17603f288872, type: 3}
+  _failureSound: {fileID: 8300000, guid: 597808774c60a6a4dac0b44002e57832, type: 3}

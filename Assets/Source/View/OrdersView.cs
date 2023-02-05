@@ -1,3 +1,4 @@
+using RootieSmoothie.Audio;
 using RootieSmoothie.CommonExtensions;
 using RootieSmoothie.Core;
 using Unity.VisualScripting;
@@ -16,6 +17,9 @@ namespace RootieSmoothie.View
 
         private OrderView _completedOrderView;
         private OrderView _currentOrderView;
+
+        [SerializeField] private AudioClip _successSound;
+        [SerializeField] private AudioClip _failureSound;
 
         private Game _game;
 
@@ -89,6 +93,10 @@ namespace RootieSmoothie.View
         private void OnOrderCompleted(Order order)
         {
             _currentOrderView.CompleteOrder(order);
+            if (order.Rating == RatingFullStars.Five)
+                AudioManager.Instance.PlaySound(this, _successSound);
+            else if (order.Rating == RatingFullStars.Two || order.Rating == RatingFullStars.One)
+                AudioManager.Instance.PlaySound(this, _failureSound);
         }
 
         private void OnDayCompleted(Day day)

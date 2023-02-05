@@ -1,5 +1,3 @@
-
-using System;
 using RootieSmoothie;
 using RootieSmoothie.Audio;
 using UnityEngine;
