@@ -31,9 +31,10 @@ namespace RootieSmoothie.Core.Blending
         {
             UsedIngredients.Add(ingredient);
             Color = ingredient.Color;
+            UnityEngine.Debug.Log($"Ingredient {ingredient.Id} added to the smoothie!");
 
             if (HasMaxIngredients)
-                UnityEngine.Debug.LogWarning($"Smoothie has max ingredients ({_maxIngredientCount})!");
+                UnityEngine.Debug.Log($"Smoothie has max ingredients ({_maxIngredientCount})!");
         }
     }
 }

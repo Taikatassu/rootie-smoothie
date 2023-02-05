@@ -30,6 +30,8 @@ namespace RootieSmoothie.Core
 
             Rate(smoothie);
             IsCompleted = true;
+
+            UnityEngine.Debug.Log($"Order completed with a rating of {Rating} stars!");
         }
 
         private void Rate(Smoothie smoothie)

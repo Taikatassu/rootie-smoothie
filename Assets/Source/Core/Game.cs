@@ -59,12 +59,25 @@ namespace RootieSmoothie.Core
                 return;
 
             Inventory.RemoveIngredient(selectedIngredient);
+
+            if (Blender.HasMaxIngredients)
+                CompleteCurrentOrder();
         }
 
-        public void CompleteOrder()
+        public void CompleteCurrentOrder()
         {
             var completedSmoothie = Blender.CompleteSmoothie();
             Day.CompleteOrder(Day.PendingOrders[0], completedSmoothie);
+
+            if (Day.HasDayEnded)
+            {
+                UnityEngine.Debug.Log($"The day has ended! Rating: {Day.Rating.AverageRating} stars!");
+            }
+
+            if (Day.TryStartNewOrder())
+            {
+                Blender.StartSmoothie(_ingredientDefinitions.GetRandomElement());
+            }
         }
     }
 }
