@@ -1,6 +1,7 @@
 using RootieSmoothie.CommonExtensions;
 using RootieSmoothie.Core;
 using System;
+using Mono.Cecil;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,13 +13,13 @@ namespace RootieSmoothie.View
         [SerializeField]
         private Image _requiredColorImage = null;
         [SerializeField]
-        private TextMeshProUGUI _requiredColorText = null;
+        private Image _requiredIngredientIcon = null;
         [SerializeField]
         private TextMeshProUGUI _orderTimerText = null;
         [SerializeField]
         private GameObject _ratingObject = null;
         [SerializeField]
-        private TextMeshProUGUI _ratingText = null;
+        private StarRankingVisual _ratingVisual = null;
         [SerializeField]
         private Button _completeButton = null;
 
@@ -35,7 +36,7 @@ namespace RootieSmoothie.View
             gameObject.SetActive(true);
 
             _requiredColorImage.color = _order.Definition.Color;
-            _requiredColorText.text = _order.Definition.RequiredIngredientId;
+            _requiredIngredientIcon.sprite = Resources.Load<Sprite>($"Ingredients/{_order.Definition.RequiredIngredientId}");
             _ratingObject.SetActive(false);
 
             _completeButton.gameObject.SetActive(true);
@@ -47,7 +48,7 @@ namespace RootieSmoothie.View
                 throw new InvalidOperationException($"Trying to complete wrong Order for the wrong OrderView");
 
             _ratingObject.SetActive(true);
-            _ratingText.text = $"Wow! {order.Rating} stars!";
+            _ratingVisual.SetStarCount((int)order.Rating);
 
             _completeButton.gameObject.SetActive(false);
         }
