@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Order_8_Lillamyy
   m_EditorClassIdentifier: 
   Definition:
-    Color: {r: 1, g: 0, b: 0, a: 1}
+    Color: {r: 0.5921569, g: 0.882353, b: 0.29803923, a: 1}
     RequiredIngredientId: Slime
     CharacterAssetPath: Characters/P_PattablePerson_3_Lillamyy

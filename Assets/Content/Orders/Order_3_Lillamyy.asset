@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Order_3_Lillamyy
   m_EditorClassIdentifier: 
   Definition:
-    Color: {r: 1, g: 0, b: 0, a: 1}
+    Color: {r: 0.29411766, g: 0.5764706, b: 0.86666673, a: 1}
     RequiredIngredientId: Toothpaste
     CharacterAssetPath: Characters/P_PattablePerson_3_Lillamyy

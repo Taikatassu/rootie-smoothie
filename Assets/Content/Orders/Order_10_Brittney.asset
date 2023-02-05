@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Order_10_Brittney
   m_EditorClassIdentifier: 
   Definition:
-    Color: {r: 1, g: 0, b: 0, a: 1}
+    Color: {r: 0.9450981, g: 0.6156863, b: 0.18823531, a: 1}
     RequiredIngredientId: GummyBear
     CharacterAssetPath: Characters/P_PattablePerson_5_Brittney
