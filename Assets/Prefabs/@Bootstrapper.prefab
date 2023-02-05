@@ -49,10 +49,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 415039b9ffa54664497c98450a5badf8, type: 2}
   - {fileID: 11400000, guid: 9e3ea25d30734a04f8ef2291d72d9fbc, type: 2}
   - {fileID: 11400000, guid: 98f2576ba2988c14c945791d547cc933, type: 2}
+  - {fileID: 11400000, guid: 71bf973cadc040e4ca231e63482f329d, type: 2}
   - {fileID: 11400000, guid: 60e88ddbbdb9ce04380eaeae5f5a284c, type: 2}
   - {fileID: 11400000, guid: f510a70fffdf0c846ba29217c81f5309, type: 2}
   - {fileID: 11400000, guid: 9bd869c823335ad469479ffb06704f81, type: 2}
   - {fileID: 11400000, guid: aa7b32da95ef22c459f46ffddde9b4ad, type: 2}
+  - {fileID: 11400000, guid: 3b2faa664bb517041939a277de625353, type: 2}
   _ingredientDefinitions:
   - {fileID: 11400000, guid: a8a13fa25ec882d4b9ab9c9ef0592f94, type: 2}
   - {fileID: 11400000, guid: a44c49496c306a245bce35517eeb0c5b, type: 2}

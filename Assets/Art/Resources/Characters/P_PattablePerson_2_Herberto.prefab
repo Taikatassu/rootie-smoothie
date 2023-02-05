@@ -97,7 +97,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2444011316475769317, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
       propertyPath: m_Name
-      value: P_PattablePerson_2
+      value: P_PattablePerson_2_Herberto
       objectReference: {fileID: 0}
+    - target: {fileID: 2444011316755794418, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -763.3446
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444011316755794418, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1848.3717
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444011316755794418, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444011316755794418, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 451
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775821640273127783, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e1575ca1d94e45b4982f01b51fab26a9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}

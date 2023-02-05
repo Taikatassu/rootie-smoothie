@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: fdef3abba8958004a9daaf7fa5ecb28d, type: 3}
+    - target: {fileID: 2444011315777444834, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -321
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444011315777444834, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -156
+      objectReference: {fileID: 0}
     - target: {fileID: 2444011316475769316, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -98,6 +106,22 @@ PrefabInstance:
     - target: {fileID: 2444011316475769317, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
       propertyPath: m_Name
       value: P_PattablePerson_5_Brittney
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444011316755794418, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -906.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444011316755794418, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1623.7817
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444011316755794418, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 138
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444011316755794418, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 276
       objectReference: {fileID: 0}
     - target: {fileID: 2775821640273127783, guid: cb2c1f2b83a6eca4a996d83de802545d, type: 3}
       propertyPath: m_Sprite
