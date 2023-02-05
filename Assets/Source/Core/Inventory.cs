@@ -13,7 +13,7 @@ namespace RootieSmoothie.Core
 
         public IReadOnlyList<Ingredient> AvailableIngredients => _availableIngredients.ToList();
         public int MaxIngredientsAvailableAtOnce => _availableIngredients.Length;
-        public float TimeToNewIngredientSpawnSec => _ingredientSpawnTimer.TimeSinceStarted;
+        public float TimeToNewIngredientSpawnSec => _ingredientSpawnTimer.TimeToEnd;
 
         private List<IngredientDefinition> _potentialIngredients;
         private Ingredient[] _availableIngredients;
