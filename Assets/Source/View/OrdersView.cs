@@ -1,5 +1,6 @@
 using RootieSmoothie.CommonExtensions;
 using RootieSmoothie.Core;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RootieSmoothie.View
@@ -10,6 +11,8 @@ namespace RootieSmoothie.View
         private OrderView _orderViewPrefab = null;
         [SerializeField]
         private Transform _orderViewsParent = null;
+
+        [SerializeField] private Transform _characterRoot;
 
         private OrderView _completedOrderView;
         private OrderView _currentOrderView;
@@ -58,6 +61,29 @@ namespace RootieSmoothie.View
         {
             SwitchCurrentAndCompletedOrderViews();
             _currentOrderView.StartOrder(order, _game.CompleteCurrentOrder);
+            VisualizeCustomer(order.Definition.CharacterAssetPath);
+        }
+
+        private void VisualizeCustomer(string path)
+        {
+            ClearCharacterRoot();
+            var character = Resources.Load<GameObject>(path);
+            var go = Instantiate(character);
+            var t = go.transform;
+            t.parent = _characterRoot;
+            t.localScale = Vector3.one;
+            t.localPosition = Vector3.zero;
+            t.localRotation = Quaternion.identity;
+        }
+
+        private void ClearCharacterRoot()
+        {
+            var count = _characterRoot.childCount;
+            for (var i = count - 1; i >= 0; --i)
+            {
+                var child = _characterRoot.GetChild(i);
+                Destroy(child.gameObject);
+            }
         }
 
         private void OnOrderCompleted(Order order)

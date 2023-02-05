@@ -15,4 +15,4 @@ MonoBehaviour:
   Definition:
     Color: {r: 0, g: 0.1882353, b: 1, a: 1}
     RequiredIngredientId: Ingredient_PlaceholderPurple
-    CharacterAssetPath: P_PattablePerson_3_Lillamyy
+    CharacterAssetPath: Characters/P_PattablePerson_3_Lillamyy
