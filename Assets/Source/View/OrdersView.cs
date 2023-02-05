@@ -48,8 +48,6 @@ namespace RootieSmoothie.View
 
         private void OnDayStarted(Day day)
         {
-            UnityEngine.Debug.Log($"OrdersView: OnDayStarted!");
-
             day.OnOrderStarted += OnOrderStarted;
             day.OnOrderCompleted += OnOrderCompleted;
 
@@ -58,23 +56,17 @@ namespace RootieSmoothie.View
 
         private void OnOrderStarted(Order order)
         {
-            UnityEngine.Debug.Log($"OrdersView: OnOrderStarted!");
-
             SwitchCurrentAndCompletedOrderViews();
             _currentOrderView.StartOrder(order, _game.CompleteCurrentOrder);
         }
 
         private void OnOrderCompleted(Order order)
         {
-            UnityEngine.Debug.Log($"OrdersView: OnOrderCompleted!");
-
             _currentOrderView.CompleteOrder(order);
         }
 
         private void OnDayCompleted(Day day)
         {
-            UnityEngine.Debug.Log($"OrdersView: OnDayCompleted!");
-
             day.OnOrderStarted -= OnOrderStarted;
             day.OnOrderCompleted -= OnOrderCompleted;
 

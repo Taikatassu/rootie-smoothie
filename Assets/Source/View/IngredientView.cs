@@ -34,8 +34,17 @@ namespace RootieSmoothie.View.Blending
             {
                 _image.gameObject.SetActive(true);
                 _button.gameObject.SetActive(true);
-                _image.color = _ingredient.Definition.Color;
+
+                if (_ingredient.Definition.AssetPath.IsNullOrEmpty())
+                    _image.color = _ingredient.Definition.Color;
+                else
+                    _image.sprite = LoadIngredientSprite();
             }
+        }
+
+        private Sprite LoadIngredientSprite()
+        {
+            return Resources.Load<Sprite>($"Ingredients/{_ingredient.Definition.AssetPath}");
         }
 
         // Called when the button is clicked
