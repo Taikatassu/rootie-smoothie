@@ -1,5 +1,6 @@
 using RootieSmoothie.CommonExtensions;
 using RootieSmoothie.Core;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,38 +17,42 @@ namespace RootieSmoothie.View
         private GameObject _ratingObject = null;
         [SerializeField]
         private TextMeshProUGUI _ratingText = null;
+        [SerializeField]
+        private Button _completeButton = null;
 
-        private Day _day;
         private Order _order;
+        private Action _onCompleteInputGiven;
 
-        public void Initialize(Day day)
+        public void StartOrder(Order order, Action onCompleteInputGiven)
         {
-            day.ThrowIfNullArgument(nameof(day));
-            _day = day;
-
-            _day.OnOrderStarted += OnOrderStarted;
-            _day.OnOrderCompleted += OnOrderCompleted;
-        }
-
-        private void OnOrderStarted(Order order)
-        {
+            order.ThrowIfNullArgument(nameof(order));
+            onCompleteInputGiven.ThrowIfNullArgument(nameof(onCompleteInputGiven));
             _order = order;
+            _onCompleteInputGiven = onCompleteInputGiven;
+            gameObject.SetActive(true);
 
             _requiredColorImage.color = _order.Definition.Color;
             _requiredColorText.text = _order.Definition.RequiredIngredientId;
             _ratingObject.SetActive(false);
+
+            _completeButton.gameObject.SetActive(true);
         }
 
-        private void OnOrderCompleted(Order order)
+        public void CompleteOrder(Order order)
         {
+            if (order != _order)
+                throw new InvalidOperationException($"Trying to complete wrong Order for the wrong OrderView");
+
             _ratingObject.SetActive(true);
             _ratingText.text = $"Wow! {order.Rating} stars!";
+
+            _completeButton.gameObject.SetActive(false);
         }
 
-        private void OnDestroy()
+        // Called when the button is clicked
+        public void OnCompleteInputGiven()
         {
-            _day.OnOrderStarted -= OnOrderStarted;
-            _day.OnOrderCompleted -= OnOrderCompleted;
+            _onCompleteInputGiven?.Invoke();
         }
     }
 }

@@ -9,6 +9,8 @@ namespace RootieSmoothie.Core.Blending
     {
         public Action<Color> OnSmoothieUpdated;
 
+        public bool HasMaxIngredients => _smoothie.HasMaxIngredients;
+
         private Smoothie _smoothie;
         private int _maxIngredientsPerSmoothieCount;
 

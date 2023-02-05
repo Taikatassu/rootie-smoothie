@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6266458882041728258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6266458882041728259}
+  - component: {fileID: 6266458882041728268}
+  m_Layer: 0
+  m_Name: '@Bootstrapper'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6266458882041728259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266458882041728258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6266458882041728268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266458882041728258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0513524afbcb34c95f045df2e5546f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orderDefinitions:
+  - {fileID: 11400000, guid: 530ef19829453fe438bea6391fa36578, type: 2}
+  - {fileID: 11400000, guid: f72be1b5a03fe884eb2751824afa545b, type: 2}
+  - {fileID: 11400000, guid: b29cb1d18509da24ca14525cfbe5d802, type: 2}
+  _ingredientDefinitions:
+  - {fileID: 11400000, guid: 1ec59a5abb859bd48b9f6fd879639710, type: 2}
+  - {fileID: 11400000, guid: 8b5fea7bb0cb9574f8c59aa7684064e8, type: 2}
+  - {fileID: 11400000, guid: 10ad252df1d73c240b4c718ca20c1779, type: 2}
+  - {fileID: 11400000, guid: c6790ae473f77734c82234d0b73be8d1, type: 2}
+  - {fileID: 11400000, guid: 2dd5b57c651fbc74d9d7c57de7c69bff, type: 2}
+  - {fileID: 11400000, guid: d1a0c01b6982eb6428434c8b4b83f9b5, type: 2}
+  _blenderView: {fileID: 0}
+  _inventoryView: {fileID: 0}
+  _ordersView: {fileID: 0}
