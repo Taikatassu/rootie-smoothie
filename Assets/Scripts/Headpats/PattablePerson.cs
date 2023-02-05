@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using RootieSmoothie.Audio;
 using RootieSmoothie.Headpats;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RootieSmoothie
 {
@@ -12,7 +14,7 @@ namespace RootieSmoothie
         [SerializeField] private Transform _visualRoot;
         [SerializeField] private AudioClip _voice;
         private Double _lastTimestamp;
-
+        
         public void OnPatStart()
         {
             _visualRoot.localScale = new Vector3(1f, 0.95f, 1f);
