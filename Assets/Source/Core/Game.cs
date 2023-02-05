@@ -14,7 +14,7 @@ namespace RootieSmoothie.Core
         private const int MaxIngredientsPerSmoothieCount = 8;
         private const int MaxOrderCount = 10;
         private const int MaxIngredientsAvailableAtOnce = 5;
-        private const float NewIngredientSpawnDurationSec = 2f;
+        private const float NewIngredientSpawnDurationSec = 0.5f;
 
         private List<OrderDefinition> _orderDefinitions;
         private List<IngredientDefinition> _ingredientDefinitions;
