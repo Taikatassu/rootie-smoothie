@@ -49,7 +49,7 @@ namespace RootieSmoothie.View
         // To be called when the button is clicked
         public void OnNextDayInputGiven()
         {
-            _game.StartNextDay();
+            _game.StartNextDay(Time.time);
         }
     }
 }

@@ -46,15 +46,16 @@ namespace RootieSmoothie.Core
         public void Start(float timeNow)
         {
             Inventory.Start(timeNow);
-            StartNewDay(1);
+            StartNewDay(1, timeNow);
         }
 
         public void Update(float timeNow)
         {
             Inventory.Update(timeNow);
+            Day.UpdateOrderTimers(timeNow);
         }
 
-        public void SelectIngredient(Ingredient selectedIngredient)
+        public void SelectIngredient(Ingredient selectedIngredient, float timeNow)
         {
             selectedIngredient.ThrowIfNullArgument(nameof(selectedIngredient));
 
@@ -64,10 +65,10 @@ namespace RootieSmoothie.Core
             Inventory.RemoveIngredient(selectedIngredient);
 
             if (Blender.HasMaxIngredients)
-                CompleteCurrentOrder();
+                CompleteCurrentOrder(timeNow);
         }
 
-        public void CompleteCurrentOrder()
+        public void CompleteCurrentOrder(float timeNow)
         {
             var completedSmoothie = Blender.CompleteSmoothie();
             Day.CompleteOrder(Day.PendingOrders[0], completedSmoothie);
@@ -80,26 +81,35 @@ namespace RootieSmoothie.Core
                 return;
             }
 
-            if (Day.TryStartNewOrder())
+            if (Day.TryStartNewOrder(timeNow))
             {
                 Blender.StartSmoothie(_ingredientDefinitions.GetRandomElement());
             }
         }
 
-        public void StartNextDay()
+        public void StartNextDay(float timeNow)
         {
             int previousDayNumber = Day.DayNumber;
-            StartNewDay(previousDayNumber + 1);
+            StartNewDay(previousDayNumber + 1, timeNow);
         }
 
-        private void StartNewDay(int dayNumber)
+        private void StartNewDay(int dayNumber, float timeNow)
         {
             Blender.StartSmoothie(_ingredientDefinitions.GetRandomElement());
 
+            if (Day != null)
+                Day.OnOrderTimerRanOut -= OnOrderTimerRanOut;
+
             int previousDayNumber = Day.DayNumber;
             Day = new Day(MaxOrderCount, _orderDefinitions, dayNumber);
-            Day.Start();
+            Day.OnOrderTimerRanOut += OnOrderTimerRanOut;
+            Day.Start(timeNow);
             OnDayStarted?.Invoke(Day);
+        }
+
+        private void OnOrderTimerRanOut(Order order, float timeNow)
+        {
+            CompleteCurrentOrder(timeNow);
         }
     }
 }

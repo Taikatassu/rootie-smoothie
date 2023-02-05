@@ -8,6 +8,7 @@ namespace RootieSmoothie.Core
 
         public float Duration { get; private set; }
         public float TimeSinceStarted => _lastTimeNow - _startTime;
+        public float TimeToEnd => Duration - TimeSinceStarted;
         public bool IsDone => _lastTimeNow - _startTime >= Duration;
 
         private float _startTime;

@@ -14,6 +14,8 @@ namespace RootieSmoothie.View
         [SerializeField]
         private TextMeshProUGUI _requiredColorText = null;
         [SerializeField]
+        private TextMeshProUGUI _orderTimerText = null;
+        [SerializeField]
         private GameObject _ratingObject = null;
         [SerializeField]
         private TextMeshProUGUI _ratingText = null;
@@ -21,12 +23,13 @@ namespace RootieSmoothie.View
         private Button _completeButton = null;
 
         private Order _order;
-        private Action _onCompleteInputGiven;
+        private Action<float> _onCompleteInputGiven;
 
-        public void StartOrder(Order order, Action onCompleteInputGiven)
+        public void StartOrder(Order order, Action<float> onCompleteInputGiven)
         {
             order.ThrowIfNullArgument(nameof(order));
             onCompleteInputGiven.ThrowIfNullArgument(nameof(onCompleteInputGiven));
+
             _order = order;
             _onCompleteInputGiven = onCompleteInputGiven;
             gameObject.SetActive(true);
@@ -52,7 +55,12 @@ namespace RootieSmoothie.View
         // Called when the button is clicked
         public void OnCompleteInputGiven()
         {
-            _onCompleteInputGiven?.Invoke();
+            _onCompleteInputGiven?.Invoke(Time.time);
+        }
+
+        private void Update()
+        {
+            _orderTimerText.text = $"{_order.TimeLeft.ToString("0.00")} sec left!";
         }
     }
 }

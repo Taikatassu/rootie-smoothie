@@ -9,16 +9,24 @@ namespace RootieSmoothie.Core
 {
     public class Order
     {
+        public Action<Order, float> OnTimerRanOut;
+
         public OrderDefinition Definition { get; private set; }
         public bool IsCompleted { get; private set; }
         public RatingFullStars Rating { get; private set; }
+        public float TimeLeft => _timer.TimeToEnd;
 
-        // TODO: Timer?
+        private Timer _timer;
 
-        public Order(OrderDefinition definition)
+        private const float OrderMaxDuration = 10f;
+
+        public Order(OrderDefinition definition, float startTime)
         {
             Definition = definition;
             IsCompleted = false;
+
+            _timer = new Timer();
+            _timer.Start(OrderMaxDuration, startTime);
         }
 
         public void Complete(Smoothie smoothie)
@@ -49,6 +57,14 @@ namespace RootieSmoothie.Core
                     .Cast<RatingFullStars>().ToList();
 
             return possibleRatings.GetRandomElement();
+        }
+
+        public void UpdateTimer(float timeNow)
+        {
+            _timer.Update(timeNow);
+
+            if (_timer.IsDone)
+                OnTimerRanOut(this, timeNow);
         }
     }
 }

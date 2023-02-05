@@ -16,9 +16,9 @@ namespace RootieSmoothie.View
 
         private IngredientView[] _ingredientViews;
         private Inventory _inventory;
-        private Action<Ingredient> _onSelectIngredient;
+        private Action<Ingredient, float> _onSelectIngredient;
 
-        public void Initialize(Inventory inventory, Action<Ingredient> onSelectIngredient)
+        public void Initialize(Inventory inventory, Action<Ingredient, float> onSelectIngredient)
         {
             inventory.ThrowIfNullArgument(nameof(inventory));
 
@@ -58,7 +58,7 @@ namespace RootieSmoothie.View
         {
             selectedIngredient.ThrowIfNullArgument(nameof(selectedIngredient));
 
-            _onSelectIngredient.Invoke(selectedIngredient);
+            _onSelectIngredient.Invoke(selectedIngredient, Time.time);
         }
 
         private void OnDestroy()

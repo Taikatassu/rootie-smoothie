@@ -11,6 +11,7 @@ namespace RootieSmoothie.Core
     {
         public Action<Order> OnOrderStarted;
         public Action<Order> OnOrderCompleted;
+        public Action<Order, float> OnOrderTimerRanOut;
 
         public int DayNumber { get; private set; }
         public List<Order> PendingOrders { get; private set; }
@@ -19,6 +20,7 @@ namespace RootieSmoothie.Core
         public bool HasDayEnded => CompletedOrders.Count == _maxOrderCount;
 
         // TODO: Timer?
+        // - Time between orders? 
 
         private int _maxOrderCount;
         private List<OrderDefinition> _potentialOrders;
@@ -37,9 +39,9 @@ namespace RootieSmoothie.Core
             Rating = new Rating();
         }
 
-        public void Start()
+        public void Start(float timeNow)
         {
-            AddOrder(GetRandomOrder());
+            AddOrder(GetRandomOrder(timeNow));
             UnityEngine.Debug.Log($"Day started");
         }
 
@@ -50,16 +52,17 @@ namespace RootieSmoothie.Core
 
             order.ThrowIfNullArgument(nameof(order));
 
+            order.OnTimerRanOut += OrderTimerRanOut;
             PendingOrders.Add(order);
             OnOrderStarted?.Invoke(order);
 
             UnityEngine.Debug.Log($"New order started!");
         }
 
-        private Order GetRandomOrder()
+        private Order GetRandomOrder(float timeNow)
         {
             var randomDefinition = _potentialOrders.GetRandomElement();
-            return new Order(randomDefinition);
+            return new Order(randomDefinition, timeNow);
         }
 
         public void CompleteOrder(Order order, Smoothie smoothie)
@@ -70,6 +73,7 @@ namespace RootieSmoothie.Core
             order.Complete(smoothie);
             Rating.AddRating(order.Rating);
 
+            order.OnTimerRanOut -= OrderTimerRanOut;
             CompletedOrders.Add(order);
             PendingOrders.Remove(order);
 
@@ -78,13 +82,28 @@ namespace RootieSmoothie.Core
             UnityEngine.Debug.Log($"Order completed!");
         }
 
-        public bool TryStartNewOrder()
+        public bool TryStartNewOrder(float timeNow)
         {
             if (CompletedOrders.Count + PendingOrders.Count >= _maxOrderCount)
                 return false;
 
-            AddOrder(GetRandomOrder());
+            AddOrder(GetRandomOrder(timeNow));
             return true;
+        }
+
+        public void UpdateOrderTimers(float timeNow)
+        {
+            var ordersToUpdateCached = new List<Order>(PendingOrders);
+
+            foreach (Order orderToUpdate in ordersToUpdateCached)
+                orderToUpdate.UpdateTimer(timeNow);
+        }
+
+        private void OrderTimerRanOut(Order order, float timeNow)
+        {
+            UnityEngine.Debug.Log("Order timer ran out!");
+
+            OnOrderTimerRanOut?.Invoke(order, timeNow);
         }
     }
 }
