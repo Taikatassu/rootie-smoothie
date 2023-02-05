@@ -41,7 +41,7 @@ public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private bool _isHovered;
     private bool _isHolding;
     private System.Random _random = new System.Random();
-    public UnityEvent<BasicButton, Object> OnClickEvent;
+    public UnityEvent<BasicButton, Object> OnClickEvent = new UnityEvent<BasicButton, Object>();
     public UnityEvent<MonoBehaviour> OnHoveredEvent;
     public UnityEvent<MonoBehaviour> OnPointerUpEvent;
     public UnityEvent<MonoBehaviour> OnPointerDownEvent;
@@ -58,7 +58,7 @@ public class BasicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    public void OnAwake()
+    public void Awake()
     {
         _button.onClick.AddListener(OnClicked);
     }
