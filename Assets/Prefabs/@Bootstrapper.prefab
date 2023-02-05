@@ -60,6 +60,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 170274f91b4b0da409a3043ede81159c, type: 2}
   - {fileID: 11400000, guid: 37fe64f29a37e7149b9ee839b438c8f1, type: 2}
   - {fileID: 11400000, guid: b5a29de8319c96c4d900b80de660714e, type: 2}
+  - {fileID: 11400000, guid: 3cd23bb964fc2c34a8f2d16100f49217, type: 2}
+  - {fileID: 11400000, guid: 4e95b4e646bbbf44abdbbdcf5ca30246, type: 2}
+  - {fileID: 11400000, guid: e363eef0126018c428c3bf7df3840616, type: 2}
+  - {fileID: 11400000, guid: 22e6bc9fc155b574aa326c8ce37c279c, type: 2}
+  - {fileID: 11400000, guid: 531e3c7b6c7a43e43bdac51423ef49ea, type: 2}
+  - {fileID: 11400000, guid: 81d498cd162e1414bac0f0c972669f0d, type: 2}
+  - {fileID: 11400000, guid: 23ded019e23229245b6e6f4d4a1b1e95, type: 2}
   _blenderView: {fileID: 0}
   _inventoryView: {fileID: 0}
   _ordersView: {fileID: 0}
